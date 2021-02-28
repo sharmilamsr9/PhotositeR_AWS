@@ -1,0 +1,55 @@
+<html>
+
+<style>
+    .header {
+        padding: 1px;
+        text-align: center;
+        background: #1abc9c;
+        color: white;
+        font-size: 15px;
+    }
+    body {
+        background-color: white;
+        text-align: center;
+        color: black;
+    }
+    table.center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+</style>
+
+
+<body>
+<div class="header">
+<!--  <img src= alt="logo" />-->
+  <p><%=image_tag 'ruby.svg' %></p>
+  <h1>My Photosite WebApp</h1>
+
+</div>
+<br>
+<br>
+<br>
+
+<table class="center">
+  <tr>
+    <th style="..."><h2>Index </h2></th>
+    <th style="..."><h2>Firstname </h2></th>
+    <th style="..."><h2>Lastname</h2></th>
+  </tr>
+
+  <% @actors.each { |actor| %>
+  <tr>
+    <td> <%= actor.id  %></td>
+    <td> <%= link_to actor.first_name, { controller:"photo", action:"index", id:actor.id } %></td>
+    <td> <%= link_to actor.last_name,  { controller:"photo", action:"index", id:actor.id}  %></td>
+  </tr>
+  <%  } %>
+</table>
+
+</body>
+
+</html>
